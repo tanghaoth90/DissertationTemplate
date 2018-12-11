@@ -170,9 +170,55 @@ public abstract class AbstractClass {
 \caption{库代码示例}\label{fig:AbsClass}
 \end{figure}
 
+\section{其他环境示例}
+
+其他环境包括定义、例子、定理、引理和证明。
+
+\subsection{定义}
+
+\begin{definition}[程序图]
+程序图$G$是二元组$(V, E)$，其中$V$是结点集合，$E$是$V$中的结点之间的有向边的集合，每条边的标记是一个$\Sigma$中的符号。
+\end{definition}
+
+\subsection{例子}
+
+\begin{example}
+给定Datalog程序 $P = \langle \Sigma, \Gamma, I, O \rangle$，其中输入关系 $I = \{B,~C\}$, 输出关系 $O = \{D\}$。
+\end{example}
+
+\subsection{定理、引理和证明}
+
+在证明序列的基础上给出关于规则实例化的引理\ref{lem:rule} 。
+
+\newcommand{\vphi}[1]{\varphi_\mathbb{T}(#1)}
+\newcommand{\rulesym}{::=}
+
+\begin{lemma}\label{lem:rule} 
+给定Datalog程序$P$、输入事实$D$和等价类抽象$\varphi_\mathbb{T}$，记适配后的程序为$P'$，$P$中的规则$\gamma$适配为规则$\gamma'$。
+\end{lemma}
+
+\begin{theorem}[正确性]\label{chap4:sound}
+给定Datalog程序$P = \langle \Sigma, \Gamma, I, O \rangle$, 输入事实$D$, 等价类抽象$\varphi_\mathbb{T}$，对应元素到等价类的映射关系为$Abs$，适配后的程序为$P'$，则$P(D)$ $\subseteq$ $P'(D \cup Abs)$。
+\end{theorem}
+\begin{proof}
+假设$w \in P(D)$，则存在证明序列$R^1_{0}(t^1_0), ..., R^i_{0}(t^i_0), ..., R^l_{0}(t^l_0)$%（引理\ref{datalogprove}）
+，使得
+\begin{enumerate}
+\item 
+最后一个事实是 $w$, 即 $R^l_{0}(t^l_0) = w$;
+\item 
+序列中的每个事实属于$D$或由序列中前面的事实推理得来，即 
+\[
+R^i_{0}(t^i_0) ::= R^i_{1}(t^i_1), ..., R^i_{m^i}(t^i_{m^i}).
+\]
+\end{enumerate}
+
+由$w$的任意性，$P(D) \subseteq P'(D \cup Abs)$。命题得证。
+
+\end{proof}
+
 \section{引用示例}
 
 \textit{延迟式摘要}是一个与\textit{条件式摘要}相对应的概念\footnote{研究生院要求每一页的脚注都要从①标起。}。
 近期大多数摘要技术都属于\textit{延迟式摘要}技术，例如构件级别分析CLA（Component Level Analysis）~\supercite{rountev2006interprocedural,DBLP:conf/cc/RountevSX08}、数据结构分析~\supercite{DBLP:conf/pldi/LattnerLA07}、模块化堆分析~\supercite{Madhaven2012modular}和Android框架的StubDroid技术~\supercite{BoddenICSE16}\footnote{研究生院要求按照引用的顺序对引文进行编号，并且用上角标标注引文编号}。
 
-%\pkuthssffaq 
